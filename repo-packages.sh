@@ -8,13 +8,13 @@ if ! [ -d "${bashrc_dir}" ]; then
 fi
 
 # Install fastfetch
-sudo add-apt-repository ppa:zhangsongcui3371/fastfetch
-sudo apt update
-sudo apt install -y fastfetch
+add-apt-repository ppa:zhangsongcui3371/fastfetch
+apt update
+apt install -y fastfetch
 
 # Install nvim
 curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz
-sudo tar -C /opt -xzf nvim-linux64.tar.gz
+tar -C /opt -xzf nvim-linux64.tar.gz
 cat >> ${bashrc_dir}/.bashrc << EOF
 
 # neovim
@@ -23,11 +23,11 @@ EOF
 
 # Install vscode
 wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
-sudo install -D -o root -g root -m 644 packages.microsoft.gpg /etc/apt/keyrings/packages.microsoft.gpg
+install -D -o root -g root -m 644 packages.microsoft.gpg /etc/apt/keyrings/packages.microsoft.gpg
 echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/keyrings/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" |sudo tee /etc/apt/sources.list.d/vscode.list > /dev/null
 rm -f packages.microsoft.gpg
-sudo apt update
-sudo apt install -y code
+apt update
+apt install -y code
 
 # Install dotnet
 wget https://dot.net/v1/dotnet-install.sh -O dotnet-install.sh
