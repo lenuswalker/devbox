@@ -1,15 +1,20 @@
-FROM quay.io/toolbx-images/alpine-toolbox:edge
+FROM docker.io/library/ubuntu:latest
 
 LABEL com.github.containers.toolbox="true" \
       usage="This image is meant to be used with the toolbox or distrobox command" \
-      summary="A cloud-native terminal experience" \
-      maintainer="jorge.castro@gmail.com"
+      summary="Development container" \
+      maintainer="lenusiwalker@outlook.com"
 
 COPY extra-packages /
-RUN apk update && \
-    apk upgrade && \
-    grep -v '^#' /extra-packages | xargs apk add
+RUN apt update && \
+    apt upgrade -y && \
+    grep -v '^#' /extra-packages | xargs apt install -y
 RUN rm /extra-packages
+
+COPY repo-packages.sh /
+RUN chmod u+x repo-packages.sh && \
+    ./repo-packages.sh 
+RUN rm /repo-packages.sh
 
 RUN   ln -fs /bin/sh /usr/bin/sh && \
       ln -fs /usr/bin/distrobox-host-exec /usr/local/bin/docker && \
