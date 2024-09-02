@@ -5,3 +5,4 @@ gnome-keyring
 make
 nano
 software-properties-common
+wget
