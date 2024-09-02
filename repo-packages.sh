@@ -31,7 +31,7 @@ apt install -y code
 
 # Install dotnet
 wget https://dot.net/v1/dotnet-install.sh -O dotnet-install.sh
-chmod +x ./dotnet-install.sh
+chmod +x dotnet-install.sh
 ./dotnet-install.sh --version latest
 cat >> ${bashrc_dir}/.bashrc << EOF
 
