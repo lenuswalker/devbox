@@ -1,8 +1,4 @@
-apt-transport-https
-ca-certificates
-curl
 dotnet-sdk-8.0
-git
 gnome-keyring
 libc6
 libgcc-s1
@@ -11,8 +7,5 @@ liblttng-ust1
 libssl3
 libstdc++6
 libunwind8
-make
 nano
-software-properties-common
-wget
 zlib1g
