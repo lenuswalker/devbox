@@ -55,4 +55,4 @@ curl -sS https://starship.rs/install.sh | sh -s -- --yes
 # EOF
 
 # Install chezmoi
-sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply git@github.com:lenuswalker/dotfiles.git
+sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply lenuswalker
