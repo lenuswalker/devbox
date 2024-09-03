@@ -13,8 +13,10 @@ apt update
 apt install -y fastfetch
 
 # Install nvim
-curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz
-tar -C /opt -xzf nvim-linux64.tar.gz
+# curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz
+curl -LOo /opt/nvim-linux64.tar.gz https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz
+# tar -C /opt -xzf nvim-linux64.tar.gz
+tar -C /opt -xzf /opt/nvim-linux64.tar.gz
 cat >> ${bashrc_dir}/.bashrc << EOF
 
 # neovim
@@ -41,7 +43,7 @@ export PATH=$PATH:$DOTNET_ROOT:$DOTNET_ROOT/tools
 EOF
 
 # Install Starship
-curl -sS https://starship.rs/install.sh | sh - -y
+curl -sS https://starship.rs/install.sh | sh -s -- --yes
 cat >> ${bashrc_dir}/.bashrc << EOF
 
 # Starship
