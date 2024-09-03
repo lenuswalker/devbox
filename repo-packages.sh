@@ -32,9 +32,9 @@ apt update
 apt install -y code
 
 # Install dotnet
-wget https://dot.net/v1/dotnet-install.sh -O dotnet-install.sh
-chmod +x dotnet-install.sh
-./dotnet-install.sh --version latest
+wget https://dot.net/v1/dotnet-install.sh -O /opt/dotnet-install.sh
+chmod +x /opt/dotnet-install.sh
+./opt/dotnet-install.sh --version latest
 cat >> ${bashrc_dir}/.bashrc << EOF
 
 # .NET export
