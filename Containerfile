@@ -1,5 +1,5 @@
 # FROM docker.io/library/ubuntu:latest
-FROM ghcr.io/ublue-os/toolboxes/ubuntu-toolbox:latest
+FROM ghcr.io/ublue-os/ubuntu-toolbox:latest
 
 LABEL com.github.containers.toolbox="true" \
       usage="This image is meant to be used with the toolbox or distrobox command" \
