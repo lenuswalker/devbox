@@ -41,7 +41,7 @@ export PATH=$PATH:$DOTNET_ROOT:$DOTNET_ROOT/tools
 EOF
 
 # Install Starship
-curl -sS https://starship.rs/install.sh | sh --yes
+curl -sS https://starship.rs/install.sh | sh -s -y
 cat >> ${bashrc_dir}/.bashrc << EOF
 
 # Starship
