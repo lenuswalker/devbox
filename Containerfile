@@ -12,15 +12,15 @@ RUN apt update && \
     grep -v '^#' /extra-packages | xargs apt install -y
 RUN rm /extra-packages
 
-# COPY repo-packages.sh /
-# RUN chmod u+x repo-packages.sh && \
-#     ./repo-packages.sh 
-# RUN rm /repo-packages.sh
+COPY repo-packages.sh /
+RUN chmod u+x repo-packages.sh && \
+    ./repo-packages.sh 
+RUN rm /repo-packages.sh
 
-RUN   ln -fs /bin/sh /usr/bin/sh && \
-      ln -fs /usr/bin/distrobox-host-exec /usr/local/bin/docker && \
-      ln -fs /usr/bin/distrobox-host-exec /usr/local/bin/flatpak && \ 
-      ln -fs /usr/bin/distrobox-host-exec /usr/local/bin/podman && \
-      ln -fs /usr/bin/distrobox-host-exec /usr/local/bin/rpm-ostree && \
-      ln -fs /usr/bin/distrobox-host-exec /usr/local/bin/transactional-update
+# RUN   ln -fs /bin/sh /usr/bin/sh && \
+#       ln -fs /usr/bin/distrobox-host-exec /usr/local/bin/docker && \
+#       ln -fs /usr/bin/distrobox-host-exec /usr/local/bin/flatpak && \ 
+#       ln -fs /usr/bin/distrobox-host-exec /usr/local/bin/podman && \
+#       ln -fs /usr/bin/distrobox-host-exec /usr/local/bin/rpm-ostree && \
+#       ln -fs /usr/bin/distrobox-host-exec /usr/local/bin/transactional-update
      
