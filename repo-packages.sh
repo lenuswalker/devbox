@@ -17,6 +17,7 @@ apt install -y fastfetch
 curl -LOo /opt/nvim-linux64.tar.gz https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz
 # tar -C /opt -xzf nvim-linux64.tar.gz
 tar -C /opt -xzf /opt/nvim-linux64.tar.gz
+rm /opt/nvim-linux64.tar.gz
 cat >> ${bashrc_dir}/.bashrc << EOF
 
 # neovim
@@ -32,15 +33,17 @@ apt update
 apt install -y code
 
 # Install dotnet
-wget https://dot.net/v1/dotnet-install.sh -O /opt/dotnet-install.sh
-chmod +x /opt/dotnet-install.sh
-./opt/dotnet-install.sh --version latest
-cat >> ${bashrc_dir}/.bashrc << EOF
+# wget https://dot.net/v1/dotnet-install.sh -O /opt/dotnet-install.sh
+# chmod +x /opt/dotnet-install.sh
+# cd /opt
+# ./dotnet-install.sh --version latest
+# cd /
+# cat >> ${bashrc_dir}/.bashrc << EOF
 
-# .NET export
-export DOTNET_ROOT=$HOME/.dotnet
-export PATH=$PATH:$DOTNET_ROOT:$DOTNET_ROOT/tools
-EOF
+# # .NET export
+# export DOTNET_ROOT=$HOME/.dotnet
+# export PATH=$PATH:$DOTNET_ROOT:$DOTNET_ROOT/tools
+# EOF
 
 # Install Starship
 curl -sS https://starship.rs/install.sh | sh -s -- --yes
