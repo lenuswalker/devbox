@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/usr/bin/env bash
 
 home_dir="$(getent passwd $(id -u) | awk '{print $6}' FS=':')"
 bashrc_dir="/run/host/${home_dir}/distrobox/home/devbox"
@@ -41,7 +41,7 @@ export PATH=$PATH:$DOTNET_ROOT:$DOTNET_ROOT/tools
 EOF
 
 # Install Starship
-curl -sS https://starship.rs/install.sh | sh -s -y
+curl -sS https://starship.rs/install.sh | sh - -y
 cat >> ${bashrc_dir}/.bashrc << EOF
 
 # Starship
