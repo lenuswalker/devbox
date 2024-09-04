@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
-# home_dir="$(getent passwd $(id -u) | awk '{print $6}' FS=':')"
-# bashrc_dir="/run/host/${home_dir}/distrobox/home/devbox"
+# bashrc_dir="${HOME}/distrobox/home/devbox"
 
 # if ! [ -d "${bashrc_dir}" ]; then
 #     mkdir -p "${bashrc_dir}"
@@ -13,11 +12,9 @@ apt update
 apt install -y fastfetch
 
 # Install neovim
-# curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz
-curl -o /opt/nvim-linux64.tar.gz -L https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz
-# tar -C /opt -xzf nvim-linux64.tar.gz
-tar -C /opt -xzf /opt/nvim-linux64.tar.gz
-rm /opt/nvim-linux64.tar.gz
+curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz
+tar -C /opt -xzf nvim-linux64.tar.gz
+rm nvim-linux64.tar.gz
 # cat >> ${bashrc_dir}/.bashrc << EOF
 
 # # neovim
@@ -33,9 +30,10 @@ apt update
 apt install -y code
 
 # Install dotnet
-wget https://dot.net/v1/dotnet-install.sh -O /opt/dotnet-install.sh
-chmod +x /opt/dotnet-install.sh
-./opt/dotnet-install.sh --version latest
+wget https://dot.net/v1/dotnet-install.sh -O /tmp/dotnet-install.sh
+chmod +x /tmp/dotnet-install.sh
+./tmp/dotnet-install.sh --version latest
+rm /tmp/dotnet-install.sh
 # cat >> ${bashrc_dir}/.bashrc << EOF
 
 # # .NET export
