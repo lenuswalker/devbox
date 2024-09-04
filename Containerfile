@@ -12,8 +12,8 @@ RUN apt update && \
     grep -v '^#' /extra-packages | xargs apt install -y
 RUN rm /extra-packages
 
-COPY devbox-setup.sh /tmp
-RUN chmod u+x /tmp/devbox-setup.sh
+COPY devbox-setup.sh /
+RUN chmod u+x devbox-setup.sh
 
 # RUN   ln -fs /bin/sh /usr/bin/sh && \
 #       ln -fs /usr/bin/distrobox-host-exec /usr/local/bin/docker && \
