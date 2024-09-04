@@ -12,8 +12,13 @@ RUN apt update && \
     grep -v '^#' /extra-packages | xargs apt install -y
 RUN rm /extra-packages
 
-COPY devbox-setup.sh /opt/
-RUN chmod +x /opt/devbox-setup.sh
+RUN mkdir /opt/scripts
+
+COPY 1-install-bitwarden-cli.sh /opt/scripts/
+RUN chmod +x /opt/scripts/1-install-bitwarden-cli.sh
+
+COPY 2-devbox-setup.sh /opt/scripts/
+RUN chmod +x /opt/scripts/2-devbox-setup.sh
 
 # RUN   ln -fs /bin/sh /usr/bin/sh && \
 #       ln -fs /usr/bin/distrobox-host-exec /usr/local/bin/docker && \
