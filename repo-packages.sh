@@ -12,9 +12,9 @@ add-apt-repository ppa:zhangsongcui3371/fastfetch
 apt update
 apt install -y fastfetch
 
-# Install nvim
+# Install neovim
 # curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz
-curl -LOo /opt/nvim-linux64.tar.gz https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz
+curl -o /opt/nvim-linux64.tar.gz -L https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz
 # tar -C /opt -xzf nvim-linux64.tar.gz
 tar -C /opt -xzf /opt/nvim-linux64.tar.gz
 rm /opt/nvim-linux64.tar.gz
@@ -33,11 +33,9 @@ apt update
 apt install -y code
 
 # Install dotnet
-# wget https://dot.net/v1/dotnet-install.sh -O /opt/dotnet-install.sh
-# chmod +x /opt/dotnet-install.sh
-# cd /opt
-# ./dotnet-install.sh --version latest
-# cd /
+wget https://dot.net/v1/dotnet-install.sh -O /opt/dotnet-install.sh
+chmod +x /opt/dotnet-install.sh
+./opt/dotnet-install.sh --version latest
 # cat >> ${bashrc_dir}/.bashrc << EOF
 
 # # .NET export
@@ -53,6 +51,12 @@ curl -sS https://starship.rs/install.sh | sh -s -- --yes
 # eval "$(starship init bash)"
 # fastfetch
 # EOF
+
+# Install Bitwarden CLI
+wget "https://vault.bitwarden.com/download/?app=cli&platform=linux" -O /tmp/bitwarden.zip
+unzip /tmp/bitwarden.zip -d /tmp
+chmod u+x /tmp/bw
+mv /tmp/bw /usr/local/bw
 
 # Install chezmoi
 sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply lenuswalker
