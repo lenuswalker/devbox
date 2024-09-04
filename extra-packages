@@ -8,4 +8,5 @@ libssl3
 libstdc++6
 libunwind8
 nano
+neovim
 zlib1g

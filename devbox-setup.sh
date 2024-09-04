@@ -7,13 +7,6 @@ apt update
 apt install -y fastfetch
 echo "fastfetch successfully installed."
 
-# Install neovim
-echo "Installing neovim from git..."
-curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz
-tar -C /opt -xzf nvim-linux64.tar.gz
-rm nvim-linux64.tar.gz
-echo "neovim successfully installed."
-
 # Install vscode
 echo "Installing visual studio code..."
 wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
@@ -28,6 +21,17 @@ echo "visual studio code successfully installed."
 echo "Installing starship..."
 curl -sS https://starship.rs/install.sh | sh -s -- --yes
 echo "starship successfully installed."
+
+# Install Bitwarden CLI
+echo "Installing Bitwarden CLI..."
+wget "https://vault.bitwarden.com/download/?app=cli&platform=linux" -O /tmp/bitwarden.zip
+unzip /tmp/bitwarden.zip -d /tmp
+chmod u+x /tmp/bw
+mv /tmp/bw /usr/local/bin/bw
+echo "Bitwarden CLI successfully installed. Please login before executing the next script. (bw login)"
+
+echo "Logging into Bitwarden..."
+bw login
 
 # Install chezmoi
 echo "Installing chezmoi and setting up dotfiles..."

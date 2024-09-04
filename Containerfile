@@ -14,11 +14,8 @@ RUN rm /extra-packages
 
 RUN mkdir /opt/scripts
 
-COPY 1-install-bitwarden-cli.sh /opt/scripts/
-RUN chmod +x /opt/scripts/1-install-bitwarden-cli.sh
-
-COPY 2-devbox-setup.sh /opt/scripts/
-RUN chmod +x /opt/scripts/2-devbox-setup.sh
+COPY devbox-setup.sh /opt/scripts/
+RUN chmod +x /opt/scripts/devbox-setup.sh
 
 # RUN   ln -fs /bin/sh /usr/bin/sh && \
 #       ln -fs /usr/bin/distrobox-host-exec /usr/local/bin/docker && \
