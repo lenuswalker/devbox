@@ -28,12 +28,4 @@ wget "https://vault.bitwarden.com/download/?app=cli&platform=linux" -O /tmp/bitw
 unzip /tmp/bitwarden.zip -d /tmp
 chmod u+x /tmp/bw
 mv /tmp/bw /usr/local/bin/bw
-echo "Bitwarden CLI successfully installed. Please login before executing the next script. (bw login)"
-
-echo "Logging into Bitwarden..."
-bw login
-
-# Install chezmoi
-echo "Installing chezmoi and setting up dotfiles..."
-sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply lenuswalker
-echo "chezmoi installed and dotfiles configured."
+echo "Bitwarden CLI successfully installed."

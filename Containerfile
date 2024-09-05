@@ -14,8 +14,13 @@ RUN rm /extra-packages
 
 RUN mkdir /opt/scripts
 
-COPY devbox-setup.sh /opt/scripts/
-RUN chmod +x /opt/scripts/devbox-setup.sh
+COPY non-repo-packages.sh /opt/scripts/
+RUN chmod +x /opt/scripts/non-repo-packages.sh && \
+    sh /opt/non-repo-packages.sh && \
+    rm /opt/non-repo-packages.sh
+
+COPY dotfile-setup.sh /opt/scripts/
+RUN chmod +x /opt/scripts/dotfile-setup.sh
 
 # RUN   ln -fs /bin/sh /usr/bin/sh && \
 #       ln -fs /usr/bin/distrobox-host-exec /usr/local/bin/docker && \
