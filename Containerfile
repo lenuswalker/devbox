@@ -16,8 +16,8 @@ RUN mkdir /opt/scripts
 
 COPY non-repo-packages.sh /opt/scripts/
 RUN chmod +x /opt/scripts/non-repo-packages.sh && \
-    sh /opt/non-repo-packages.sh && \
-    rm /opt/non-repo-packages.sh
+    /opt/scripts/non-repo-packages.sh && \
+    rm /opt/scripts/non-repo-packages.sh
 
 COPY dotfile-setup.sh /opt/scripts/
 RUN chmod +x /opt/scripts/dotfile-setup.sh
