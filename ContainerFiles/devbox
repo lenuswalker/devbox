@@ -1,0 +1,19 @@
+# FROM docker.io/library/ubuntu:latest
+FROM ghcr.io/ublue-os/ubuntu-toolbox:latest
+
+LABEL com.github.containers.toolbox="true" \
+      usage="This image is meant to be used with the toolbox or distrobox command" \
+      summary="Development container" \
+      maintainer="lenusiwalker@outlook.com"
+
+# Copy the setup scripts and package list
+COPY ../scripts/devbox.sh /
+COPY ../scripts/distrobox-shims.sh /
+COPY ../scripts/dotfile-setup.sh /
+COPY ../scripts/non-repo-packages.sh /
+COPY ../packages/devbox.packages /
+
+# Run the setup scripts
+RUN chmod +x devbox.sh distrobox-shims.sh dotfile-setup.sh non-repo-packages.sh && /devbox.sh
+RUN rm /devbox.sh /distrobox-shims.sh /devbox.packages /dotfile-setup.sh /non-repo-packages.sh
+    

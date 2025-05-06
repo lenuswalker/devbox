@@ -1,4 +1,5 @@
-dotnet-sdk-8.0
+cosign
+dotnet-sdk-9.0
 gnome-keyring
 libc6
 libgcc-s1
@@ -9,4 +10,7 @@ libstdc++6
 libunwind8
 nano
 neovim
+nodejs
+npm
+python3
 zlib1g
